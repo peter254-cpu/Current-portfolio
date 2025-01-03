@@ -6,7 +6,9 @@ import CanvasLoader from "../components/CanvasLoader";
 import { Leva, useControls } from "leva";
 import { useMediaQuery } from "react-responsive";
 import { calculateSizes } from "../contants";
+import Cube from "../components/Cube";
 import Target from "../components/Target";
+import Ring from "../components/Ring";
 import ReactLogo from "../components/ReactLogo";
 import HeroCamera from "../components/HeroCamera";
 import Button from "../components/Button";
@@ -16,46 +18,7 @@ const Hero = () => {
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
   const sizes = calculateSizes(isSmall, isMobile, isTablet)
-  const { positionX, positionY, positionZ, rotationX, rotationY, rotationZ, scale } = useControls(
-    'HackerRoom', 
-    {
-      positionX: { 
-        value: 2, 
-        min: -10,
-        max: 10 
-      },
-      positionY: { 
-        value: -10, 
-        min: -10, 
-        max: 10
-      },
-      positionZ: { 
-        value: 2.0, 
-        min: -10, 
-        max: 10
-      },
-      rotationX: {
-        value: 0.0, 
-        min: -10, 
-        max: 10 
-      },
-      rotationY: { 
-        value: -3.2, 
-        min: -10, 
-        max: 10 
-      },
-      rotationZ: { 
-        value: 0.0, 
-        min: -10, 
-        max: 10 
-      },
-      scale: { 
-        value: 0.1, 
-        min: -10, 
-        max: 10 
-      },
-    }
-  );
+ 
   return (
     <section className="min-h-screen w-full flex flex-col relative">
       <div className="w-full mx-auto flex flex-col sm:mt-36 mt-18 c-space gap-3">
@@ -81,6 +44,8 @@ const Hero = () => {
             <group>
               <Target position={sizes.targetPosition} />
               <ReactLogo position={sizes.reactLogoPosition} />
+              <Cube position = {sizes.cubePosition} />
+              <Ring position={sizes.ringPosition} />
             </group>
             <ambientLight intensity={1} />
             <directionalLight position={[10, 10, 10]} intensity={0.5} />
