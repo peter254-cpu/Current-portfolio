@@ -21,7 +21,7 @@ const Hero = () => {
  
   return (
     <section className="min-h-screen w-full flex flex-col relative">
-      <div className="w-full mx-auto flex flex-col sm:mt-36 mt-18 c-space gap-3">
+      <div className="w-full mx-auto flex flex-col  sm:mt-36 mt-18 c-space gap-3">
         <p className="sm:text-3xl text-2xl text-white text-center font-medium font-generalSans">
           Hi, I'm Peter <span className="waving-hand">👋</span>
         </p>
